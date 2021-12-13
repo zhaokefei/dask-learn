@@ -7,4 +7,7 @@ RUN apt-get update && apt-get install -y graphviz git
 USER jovyan
 
 RUN git clone https://github.com/zhaokefei/dask-learn.git ./dask-learn
-RUN cd dask-learn && conda env update -n base -f binder/environment.yml --prune && . binder/postBuild && cd ..
+RUN cd dask-learn
+RUN conda env update -n dask_learn -f binder/environment.yml 
+RUN conda activate dask_learn
+RUN cd ..
